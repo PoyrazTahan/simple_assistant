@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-07-15T00:17:59.434044",
+  "user_data": {
+    "age": 28,
+    "weight": 72.0,
+    "height": 175.0,
+    "gender": "female",
+    "has_children": "no",
+    "sleep_quality": "good",
+    "stress_level": "moderate",
+    "mood_level": "good",
+    "activity_level": "mildly active",
+    "sugar_intake": "low",
+    "water_intake": "moderate",
+    "smoking_status": "no",
+    "supplement_usage": "yes"
+  },
+  "recommendation_message": "I'm excited to share your personalized wellness recommendations, Poyraz! Based on the information you provided, here are four suggestions to help enhance your well-being and support your health journey:\n\n1. **Take Vitamins**: Since you are already using supplements, it's important to ensure you are taking the right vitamins that complement your current health needs.\n\n2. **Mindfulness Break**: With a moderate stress level, incorporating mindfulness practices can help you manage stress effectively and improve your overall mental wellbeing.\n\n3. **Movement Break**: Given that you described your activity level as mildly active, taking regular movement breaks will help you increase your physical activity throughout the day.\n\n4. **Healthy Eating**: While your current diet seems to be low in sugar, focusing on overall healthy eating patterns can further support your wellness.\n\nThese recommendations can be easily integrated into your daily routine, and I encourage you to give them a try! Remember, small changes can lead to big results.",
+  "top_4_actions": [
+    "take_vitamins",
+    "mindfulness_break",
+    "movement_break",
+    "healthy_eating"
+  ]
+}

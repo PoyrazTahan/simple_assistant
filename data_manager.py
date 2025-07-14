@@ -75,9 +75,12 @@ class DataManager:
         
         status_lines.append(f"\n=== GUIDANCE ===")
         if missing:
-            status_lines.append(f"• Next: Ask about {missing[0]} or related field")
+            if len(missing) == 1:
+                status_lines.append(f"• FINAL QUESTION: Ask about {missing[0]} only - this will complete the assessment")
+            else:
+                status_lines.append(f"• Next: Ask about {missing[0]} or related field")
         else:
-            status_lines.append("• All data collected - ready for summary")
+            status_lines.append("• We have all the information we need - DO NOT ASK ANY ADDITIONAL INFORMATION")
         
         return "\n".join(status_lines)
     
@@ -107,26 +110,23 @@ class DataManager:
             return "Overweight"
         return "Obese"
     
-    def get_user_type_and_greeting_context(self):
-        """Determine if user is new or returning and provide greeting context"""
+    
+    def save_recommendations(self, actions_list, user_message):
+        """Save simplified recommendations to JSON file with top 4 actions"""
+        from datetime import datetime
+        
         data = self.load_data()
         
-        # Check if user has any data beyond name
-        filled_fields = [key for key, value in data.items() if value is not None]
-        
-        # New user: only name or completely empty
-        if len(filled_fields) == 0 or (len(filled_fields) == 1 and 'name' in filled_fields):
-            user_type = "new"
-        else:
-            user_type = "returning"
-        
-        # Get first missing field for next_question
-        missing_fields = [key for key, value in data.items() if value is None]
-        first_missing = missing_fields[0] if missing_fields else None
-        
-        return {
-            "user_type": user_type,
-            "first_missing_field": first_missing,
-            "filled_fields": filled_fields,
-            "missing_fields": missing_fields
+        # Create simple recommendation record
+        recommendation_record = {
+            "timestamp": datetime.now().isoformat(),
+            "user_data": data,
+            "recommendation_message": user_message,
+            "top_4_actions": actions_list
         }
+        
+        # Save to recommendations.json
+        with open("data/recommendations.json", 'w') as f:
+            json.dump(recommendation_record, f, indent=2)
+        
+        return recommendation_record
