@@ -1,0 +1,8 @@
+*__pycache__
+.env
+archive/
+.archive/
+.vscode/
+.claude
+.notes/
+.test_results/
