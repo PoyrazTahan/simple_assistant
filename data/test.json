@@ -1,0 +1,225 @@
+{
+  "test_scenarios": [
+    {
+      "name": "Fresh User - Complete Journey",
+      "profile": "fresh_user",
+      "description": "New user starts with empty profile, tests all 13 fields",
+      "existing_data": {},
+      "inputs": {
+        "age": "28",
+        "weight": "72kg",
+        "height": "175cm", 
+        "gender": "Female",
+        "has_children": "No",
+        "sleep_quality": "good",
+        "stress_level": "moderate", 
+        "mood_level": "good",
+        "activity_level": "mildly active",
+        "sugar_intake": "low",
+        "water_intake": "moderate",
+        "smoking_status": "no",
+        "supplement_usage": "yes"
+      },
+      "expected_result": {
+        "age": 28,
+        "weight": 72.0,
+        "height": 175.0,
+        "gender": "Female",
+        "has_children": "No",
+        "sleep_quality": "good",
+        "stress_level": "moderate",
+        "mood_level": "good", 
+        "activity_level": "mildly active",
+        "sugar_intake": "low",
+        "water_intake": "moderate",
+        "smoking_status": "no",
+        "supplement_usage": "yes"
+      }
+    },
+    {
+      "name": "Young Professional with Pre-filled Data",
+      "profile": "young_professional",
+      "description": "User with some health data already collected",
+      "existing_data": {
+        "age": 25,
+        "gender": "Female",
+        "has_children": "no",
+        "supplement_usage": "yes"
+      },
+      "inputs": {
+        "weight": "65kg",
+        "height": "168cm",
+        "sleep_quality": "poor",
+        "stress_level": "high",
+        "mood_level": "low",
+        "activity_level": "low activity",
+        "sugar_intake": "moderate",
+        "water_intake": "low",
+        "smoking_status": "social smoker"
+      },
+      "expected_result": {
+        "age": 25,
+        "weight": 65.0,
+        "height": 168.0,
+        "gender": "Female", 
+        "has_children": "no",
+        "sleep_quality": "poor",
+        "stress_level": "high",
+        "mood_level": "low",
+        "activity_level": "low activity",
+        "sugar_intake": "moderate",
+        "water_intake": "low",
+        "smoking_status": "social smoker",
+        "supplement_usage": "yes"
+      }
+    },
+    {
+      "name": "Health Conscious Senior",
+      "profile": "senior_health_focused",
+      "description": "Older adult with good health habits",
+      "existing_data": {
+        "age": 67,
+        "smoking_status": "no",
+        "supplement_usage": "yes",
+        "sugar_intake": "low"
+      },
+      "inputs": {
+        "weight": "70kg",
+        "height": "165cm",
+        "gender": "Male",
+        "has_children": "yes", 
+        "sleep_quality": "good",
+        "stress_level": "low",
+        "mood_level": "good",
+        "activity_level": "moderately active",
+        "water_intake": "high"
+      },
+      "expected_result": {
+        "age": 67,
+        "weight": 70.0,
+        "height": 165.0,
+        "gender": "Male",
+        "has_children": "yes",
+        "sleep_quality": "good",
+        "stress_level": "low", 
+        "mood_level": "good",
+        "activity_level": "moderately active",
+        "sugar_intake": "low",
+        "water_intake": "high",
+        "smoking_status": "no",
+        "supplement_usage": "yes"
+      }
+    },
+    {
+      "name": "Stressed Parent Profile",
+      "profile": "busy_parent",
+      "description": "Parent with high stress and poor lifestyle habits",
+      "existing_data": {
+        "age": 35,
+        "has_children": "yes",
+        "stress_level": "high"
+      },
+      "inputs": {
+        "weight": "80kg",
+        "height": "178cm",
+        "gender": "Male",
+        "sleep_quality": "poor",
+        "mood_level": "low",
+        "activity_level": "low activity",
+        "sugar_intake": "high",
+        "water_intake": "low",
+        "smoking_status": "1 pack a day",
+        "supplement_usage": "no"
+      },
+      "expected_result": {
+        "age": 35,
+        "weight": 80.0,
+        "height": 178.0,
+        "gender": "Male",
+        "has_children": "yes",
+        "sleep_quality": "poor",
+        "stress_level": "high",
+        "mood_level": "low",
+        "activity_level": "low activity", 
+        "sugar_intake": "high",
+        "water_intake": "low",
+        "smoking_status": "1 pack a day",
+        "supplement_usage": "no"
+      }
+    },
+    {
+      "name": "Edge Case - Type Conversions",
+      "profile": "edge_case_testing",
+      "description": "Tests various input formats and edge cases",
+      "existing_data": {
+        "gender": "Female",
+        "has_children": "no"
+      },
+      "inputs": {
+        "age": "I'm 42 years old",
+        "weight": "78.5 kilograms", 
+        "height": "170 centimeters",
+        "sleep_quality": "sometimes good",
+        "stress_level": "often stressed",
+        "mood_level": "usually happy",
+        "activity_level": "very active",
+        "sugar_intake": "rarely eat sugar",
+        "water_intake": "drink lots of water",
+        "smoking_status": "quit 2 years ago",
+        "supplement_usage": "take daily vitamins"
+      },
+      "expected_result": {
+        "age": 42,
+        "weight": 78.5,
+        "height": 170.0,
+        "gender": "Female",
+        "has_children": "no",
+        "sleep_quality": "sometimes good",
+        "stress_level": "often stressed", 
+        "mood_level": "usually happy",
+        "activity_level": "very active",
+        "sugar_intake": "rarely eat sugar",
+        "water_intake": "drink lots of water", 
+        "smoking_status": "quit 2 years ago",
+        "supplement_usage": "take daily vitamins"
+      }
+    },
+    {
+      "name": "Heavy Smoker Profile",
+      "profile": "high_risk_user",
+      "description": "User with multiple health risk factors",
+      "existing_data": {
+        "smoking_status": "2 pack a day",
+        "age": 45
+      },
+      "inputs": {
+        "weight": "95kg",
+        "height": "175cm",
+        "gender": "Male", 
+        "has_children": "yes",
+        "sleep_quality": "very poor",
+        "stress_level": "extremely high",
+        "mood_level": "very low",
+        "activity_level": "sedentary",
+        "sugar_intake": "very high",
+        "water_intake": "very low",
+        "supplement_usage": "no"
+      },
+      "expected_result": {
+        "age": 45,
+        "weight": 95.0,
+        "height": 175.0,
+        "gender": "Male",
+        "has_children": "yes",
+        "sleep_quality": "very poor",
+        "stress_level": "extremely high",
+        "mood_level": "very low",
+        "activity_level": "sedentary",
+        "sugar_intake": "very high", 
+        "water_intake": "very low",
+        "smoking_status": "2 pack a day",
+        "supplement_usage": "no"
+      }
+    }
+  ]
+}
