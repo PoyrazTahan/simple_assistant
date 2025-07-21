@@ -8,6 +8,30 @@ AVAILABLE_ACTIONS = [
     "journaling", "sugar_free_day", "get_sunlight", "weight_tracking", "healthy_eating"
 ]
 
+def parse_language_tags(message):
+    """Parse language tags and concatenate both languages for display"""
+    # Check if message contains language tags
+    english_pattern = r'<english>(.*?)</english>'
+    turkish_pattern = r'<turkish>(.*?)</turkish>'
+    
+    english_match = re.search(english_pattern, message, re.DOTALL)
+    turkish_match = re.search(turkish_pattern, message, re.DOTALL)
+    
+    if english_match and turkish_match:
+        # Language mode: concatenate both languages
+        english_text = english_match.group(1).strip()
+        turkish_text = turkish_match.group(1).strip()
+        return f"English: {english_text}\nTurkish: {turkish_text}"
+    elif english_match:
+        # Only English tags found
+        return f"English: {english_match.group(1).strip()}"
+    else:
+        # Default mode: return message as-is (should be English)
+        return message
+    
+    # TODO: For later reference - we're passing concatenated string to UI
+    # Could separate into structured data for more advanced UI formatting
+    
 def parse_response(llm_response):
     """Parse LLM response into user message and system commands"""
     # Split response into user message and system message
@@ -19,11 +43,14 @@ def parse_response(llm_response):
         user_message = llm_response.strip()
         system_part = ""
     
+    # Parse language tags and get the appropriate message
+    final_user_message = parse_language_tags(user_message)
+    
     # Parse system commands
     system_commands = parse_system_commands(system_part)
     
     return {
-        "user_message": user_message,
+        "user_message": final_user_message,
         "system_commands": system_commands,
         "raw_system": system_part
     }

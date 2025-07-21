@@ -10,20 +10,31 @@ load_dotenv()
 class SimpleAgent:
     """Simple agent for basic LLM conversation - pure conversation handler"""
     
-    def __init__(self, debug_mode=False, prompt_mode=False):
+    def __init__(self, debug_mode=False, prompt_mode=False, language_mode=False, model="gpt-4o-mini"):
         self.api_key = os.getenv("OPENAI_API_KEY")
         if not self.api_key:
             raise ValueError("OPENAI_API_KEY not found in environment variables")
         
         self.client = OpenAI(api_key=self.api_key)
+        self.model = model
         self.system_prompt = self._load_system_prompt()
+        self.language_prompt = self._load_language_prompt() if language_mode else ""
         self.conversation_history = []
         self.debug_mode = debug_mode
         self.prompt_mode = prompt_mode
+        self.language_mode = language_mode
+        
+        if self.debug_mode:
+            print(f"[DEBUG] - Using model: {self.model}")
     
     def _load_system_prompt(self):
         """Load system prompt from file"""
         with open("prompts/system_prompt.txt", "r", encoding="utf-8") as f:
+            return f.read().strip()
+    
+    def _load_language_prompt(self):
+        """Load language prompt instructions for dual language mode"""
+        with open("prompts/language_prompt.txt", "r", encoding="utf-8") as f:
             return f.read().strip()
     
     def _format_conversation_history(self):
@@ -43,6 +54,8 @@ class SimpleAgent:
         
         full_prompt = textwrap.dedent(f"""
         {self.system_prompt}
+
+        {self.language_prompt if self.language_mode else ""}
 
         {stage_context}
         
@@ -68,7 +81,7 @@ class SimpleAgent:
         full_prompt = self._build_full_prompt(user_input, stage_context, profile_and_data_context)
         
         response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=self.model,
             messages=[
                 {"role": "user", "content": full_prompt}
             ]

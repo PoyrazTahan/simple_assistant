@@ -69,6 +69,15 @@ python app.py --debug
 
 # Full prompt mode (shows complete prompts sent to LLM)
 python app.py --full-prompt
+
+# Dual language mode (English + Turkish responses)
+python app.py --language
+
+# Use different model (default: gpt-4o-mini)
+python app.py --model=gpt-4o
+
+# Combined modes
+python app.py --language --model=gpt-4o --debug
 ```
 
 ### Testing

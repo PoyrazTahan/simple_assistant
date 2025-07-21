@@ -8,19 +8,28 @@ from widget_handler import is_widget_field, show_widget_for_field
 
 def main():
     """Simple onboarding with flattened architecture"""
-    # Check for debug mode
+    # Check for modes
     debug_mode = "--debug" in sys.argv
     prompt_mode = "--full-prompt" in sys.argv
+    language_mode = "--language" in sys.argv
+    
+    # Check for model parameter
+    model = "gpt-4o-mini"  # default
+    for arg in sys.argv:
+        if arg.startswith("--model="):
+            model = arg.split("=")[1]
     
     if debug_mode:
-        print("Simple Onboarding - DEBUG MODE")
+        print(f"Simple Assistant - DEBUG MODE (Model: {model})")
+    elif language_mode:
+        print(f"Simple Assistant - DUAL LANGUAGE MODE (Model: {model})")
     else:
-        print("Simple Onboarding - Data Collection")
+        print(f"Simple Assistant - Data Collection (Model: {model})")
     
     print("Type 'quit' to exit")
     
     # Initialize components
-    agent = SimpleAgent(debug_mode=debug_mode, prompt_mode=prompt_mode)
+    agent = SimpleAgent(debug_mode=debug_mode, prompt_mode=prompt_mode, language_mode=language_mode, model=model)
     stage_manager = StageManager(debug_mode=debug_mode)
     data_manager = DataManager()
     system_messages_history = []

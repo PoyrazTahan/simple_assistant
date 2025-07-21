@@ -1,25 +1,25 @@
 {
-  "timestamp": "2025-07-15T00:17:59.434044",
+  "timestamp": "2025-07-21T20:44:49.514414",
   "user_data": {
     "age": 28,
-    "weight": 72.0,
-    "height": 175.0,
-    "gender": "female",
-    "has_children": "no",
-    "sleep_quality": "good",
-    "stress_level": "moderate",
-    "mood_level": "good",
-    "activity_level": "mildly active",
-    "sugar_intake": "low",
-    "water_intake": "moderate",
-    "smoking_status": "no",
-    "supplement_usage": "yes"
+    "weight": 78.0,
+    "height": 185.0,
+    "gender": "Female",
+    "has_children": "Yes",
+    "sleep_quality": "Never",
+    "stress_level": "Sometimes",
+    "mood_level": "Less than half the time",
+    "activity_level": "Low (short walks, occasionally standing)",
+    "sugar_intake": "3-4 days",
+    "water_intake": "3-4 glasses (600-800 ml)",
+    "smoking_status": "3-4 cigarettes per day",
+    "supplement_usage": "Yes"
   },
-  "recommendation_message": "I'm excited to share your personalized wellness recommendations, Poyraz! Based on the information you provided, here are four suggestions to help enhance your well-being and support your health journey:\n\n1. **Take Vitamins**: Since you are already using supplements, it's important to ensure you are taking the right vitamins that complement your current health needs.\n\n2. **Mindfulness Break**: With a moderate stress level, incorporating mindfulness practices can help you manage stress effectively and improve your overall mental wellbeing.\n\n3. **Movement Break**: Given that you described your activity level as mildly active, taking regular movement breaks will help you increase your physical activity throughout the day.\n\n4. **Healthy Eating**: While your current diet seems to be low in sugar, focusing on overall healthy eating patterns can further support your wellness.\n\nThese recommendations can be easily integrated into your daily routine, and I encourage you to give them a try! Remember, small changes can lead to big results.",
+  "recommendation_message": "English: Poyraz, thank you so much for sharing all these details with me\u2014your openness makes a real difference! Looking over everything, there are a few key steps you can take for a big boost in your daily wellness.\n\nFirst, I recommend prioritizing regular health checkups\u2014these help you catch potential issues early and stay on track with your wellbeing. Since you currently smoke, even if it's just a few cigarettes a day, cutting back or quitting will hugely benefit your long-term health. Your sleep quality and water intake could use some attention as well. Creating a calming \"screen curfew\" (avoiding screens at least an hour before bed) could help improve your sleep, and increasing your daily water intake will support both your energy and overall health. \n\nThese small steps can make a meaningful change. If you ever need more guidance, I\u2019m always here for you!\nTurkish: Poyraz, t\u00fcm bu bilgileri payla\u015ft\u0131\u011f\u0131n\u0131z i\u00e7in \u00e7ok te\u015fekk\u00fcr ederim\u2014samimiyetiniz ger\u00e7ekten \u00e7ok de\u011ferli! Durumunuza bakt\u0131\u011f\u0131mda, g\u00fcnl\u00fck hayat\u0131n\u0131z\u0131 rahatlatacak ve sa\u011fl\u0131\u011f\u0131n\u0131z\u0131 art\u0131racak birka\u00e7 \u00f6nemli ad\u0131m \u00f6ne \u00e7\u0131k\u0131yor.\n\n\u00d6ncelikle, d\u00fczenli sa\u011fl\u0131k kontrollerinizi ihmal etmemenizi \u00f6neririm; bu kontroller sayesinde olas\u0131 sorunlar\u0131 erken yakalayabilirsiniz. Sigara i\u00e7iyor olman\u0131z uzun vadede sa\u011fl\u0131\u011f\u0131n\u0131z\u0131 olumsuz etkileyebilir; b\u0131rakmay\u0131 ya da azaltmay\u0131 d\u00fc\u015f\u00fcnmek sizin i\u00e7in \u00e7ok b\u00fcy\u00fck bir katk\u0131 sa\u011flar. Uykusuzluk \u00e7ekiyorsunuz ve ekran ba\u015f\u0131nda zaman ge\u00e7irmek uyku kalitenizi bozabilir. Yatmadan en az bir saat \u00f6nce ekranlardan uzakla\u015fmaya \u00e7al\u0131\u015fmak daha iyi bir uyku d\u00fczeni sa\u011flayabilir. Su t\u00fcketiminizi art\u0131rmak da hem enerjinizi hem genel sa\u011fl\u0131\u011f\u0131n\u0131z\u0131 olumlu etkiler.\n\nBunlar\u0131n hepsi uygulanabilir k\u00fc\u00e7\u00fck ama g\u00fc\u00e7l\u00fc ad\u0131mlar. Sormak istedi\u011finiz bir \u015fey olursa her zaman buraday\u0131m!",
   "top_4_actions": [
-    "take_vitamins",
-    "mindfulness_break",
-    "movement_break",
-    "healthy_eating"
+    "regular_checkup",
+    "quit_smoking",
+    "screen_curfew",
+    "drink_water"
   ]
 }
