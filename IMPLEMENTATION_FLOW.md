@@ -1,8 +1,8 @@
-# Simple Onboarding - Implementation Flow
+# Simple Assistant - Implementation Flow
 
 ## High-Level Architecture
 
-This document outlines the simplified architecture of the simple_onboarding system, focusing on clean separation of concerns and straightforward data flow.
+This document outlines the simplified architecture of the simple_assistant system, focusing on clean separation of concerns and straightforward data flow.
 
 ## 🔍 Architecture Overview
 

@@ -1,4 +1,4 @@
-# Simple Onboarding - Streamlined Health Data Collection
+# Simple Assistant - Streamlined Health Data Collection
 
 A simplified health data collection system that uses direct text parsing, stage-based conversation management, and integrated widget UI for enhanced user experience.
 
@@ -14,68 +14,53 @@ A simplified health data collection system that uses direct text parsing, stage-
 
 ## 🚀 Quick Start
 
-### Installation
+### Automatic Setup (Recommended)
 
-#### 1. Open Terminal (macOS)
-
-- Press `Cmd + Space`, type "Terminal", press Enter
-
-#### 2. Create Setup Directory and Script
+**One-line setup for macOS:**
 
 ```bash
-# Create heltia directory in your home folder
-mkdir ~/heltia
-
-# Create setup script file
-touch ~/heltia/setup.sh
-
-# Make it executable
-chmod +x ~/heltia/setup.sh
-
-# Open the heltia directory in Finder
-open ~/heltia
+# Open Terminal (Cmd+Space, type "Terminal")
+# Run this single command:
+curl -fsSL https://raw.githubusercontent.com/PoyrazTahan/simple_assistant/main/setup.sh | bash
 ```
 
-#### 3. Copy Setup Script Content
+This will:
+- ✅ Install Python dependencies
+- ✅ Clone the repository to `~/heltia/simple_assistant`
+- ✅ Create `.env` file with placeholder
+- ✅ Open the folder for you to add your API key
 
-1. **Open the setup.sh file** you just created (double-click it in Finder)
-2. **Copy the setup script content** from: https://github.com/PoyrazTahan/simple_assistant/blob/main/setup.sh
-3. **Paste the content** into your setup.sh file and save it
+**After setup completes:**
+1. **Add your OpenAI API key**: The setup will open the `.env` file in TextEdit
+2. **Replace `OPENAI_API_KEY=put-your-key-here`** with your actual API key from [OpenAI](https://platform.openai.com/api-keys)
+3. **Save and close** the .env file
 
-#### 4. Run Setup Script
+### Manual Setup (If needed)
+
+If the automatic setup doesn't work:
 
 ```bash
-# Navigate to heltia directory and run setup
-cd ~/heltia
-./setup.sh
+# 1. Create project directory
+mkdir ~/heltia && cd ~/heltia
+
+# 2. Clone repository
+git clone https://github.com/PoyrazTahan/simple_assistant.git
+cd simple_assistant
+
+# 3. Install dependencies
+pip install openai python-dotenv
+
+# 4. Create environment file
+echo "OPENAI_API_KEY=put-your-key-here" > .env
+open .env  # Opens in TextEdit - add your actual API key
 ```
 
-#### 5. Add Your OpenAI API Key
-
-**After setup completes, edit the .env file:**
+### Running the Application
 
 ```bash
-# Open the environment file
-open ~/heltia/simple_assistant
-```
-
-Edit .env file by right-click + Open with Text Edit
-
-**Replace `your-openai-api-key-here` with your actual OpenAI API key from https://platform.openai.com/api-keys**
-
-#### 6. Activate Environment and Start Using
-
-```bash
-# Activate the conda environment
-conda activate planner_agent
-
-# Navigate to project directory
+# Navigate to the project (if not already there)
 cd ~/heltia/simple_assistant
-```
 
-2. **Run the Application**
-
-```bash
 # Interactive mode
 python app.py
 
@@ -86,7 +71,7 @@ python app.py --debug
 python app.py --full-prompt
 ```
 
-3. **Run Tests**
+### Testing
 
 ```bash
 # Run all test scenarios
@@ -102,7 +87,7 @@ python test.py run 1
 ## 📁 File Structure
 
 ```
-simple_onboarding/
+simple_assistant/
 ├── app.py                 # Main application entry point
 ├── simple_agent.py        # LLM conversation handler
 ├── stage_manager.py       # Conversation stage management
