@@ -19,6 +19,7 @@ def main():
         if arg.startswith("--model="):
             model = arg.split("=")[1]
     
+    # Display mode information
     if debug_mode:
         print(f"Simple Assistant - DEBUG MODE (Model: {model})")
     elif language_mode:
@@ -29,7 +30,12 @@ def main():
     print("Type 'quit' to exit")
     
     # Initialize components
-    agent = SimpleAgent(debug_mode=debug_mode, prompt_mode=prompt_mode, language_mode=language_mode, model=model)
+    agent = SimpleAgent(
+        debug_mode=debug_mode, 
+        prompt_mode=prompt_mode, 
+        language_mode=language_mode, 
+        model=model
+    )
     stage_manager = StageManager(debug_mode=debug_mode)
     data_manager = DataManager()
     system_messages_history = []
