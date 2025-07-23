@@ -94,6 +94,14 @@ def main():
         # Update stage based on response
         stage_manager.update_stage(response)
         
+        # Save conversation turn to history
+        data_manager.save_conversation_turn(
+            user_input=user_input,
+            assistant_response=response["user_message"],
+            system_commands=response["system_commands"],
+            current_stage=stage_manager.get_current_stage()
+        )
+        
         # Display recommendations if any
         if response["system_commands"]["recommendations"]:
             print("    📋 Recommendations:")

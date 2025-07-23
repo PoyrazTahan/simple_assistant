@@ -1,0 +1,58 @@
+{
+  "session_start": "2025-07-23T18:17:08.638448",
+  "turns": [
+    {
+      "turn_number": 1,
+      "timestamp": "2025-07-23T18:17:08.638480",
+      "user_input": "",
+      "assistant_response": "🇺🇸 Welcome back, Poyraz! It's great to see you again. We're here to help you keep track of your health and offer advice tailored just for you. We'll continue by collecting some basic information about your daily habits and wellness, so you can get the most suitable recommendations.\n🇹🇷 Tekrar hoş geldiniz Poyraz! Sizi yeniden burada görmek çok güzel. Size uygun sağlık tavsiyeleri sunabilmemiz için günlük alışkanlıklarınız ve genel sağlık durumunuzla ilgili bazı temel bilgileri birlikte güncelleyeceğiz. Bu şekilde, size en faydalı önerileri hazırlayabileceğiz.",
+      "system_commands": {
+        "updates": [],
+        "asking": null,
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 2,
+      "timestamp": "2025-07-23T18:17:13.033412",
+      "user_input": "test",
+      "assistant_response": "🇺🇸 Thank you, Poyraz! Let’s get started. Could you please tell me your age?\n🇹🇷 Teşekkürler Poyraz. Şimdi başlayalım isterseniz. Yaşınızı söyler misiniz?",
+      "system_commands": {
+        "updates": [],
+        "asking": "age",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 3,
+      "timestamp": "2025-07-23T18:17:25.088594",
+      "user_input": "test2",
+      "assistant_response": "🇺🇸 Thank you for your response, Poyraz! To proceed, may I ask how old you are?\n🇹🇷 Yanıtınız için teşekkürler Poyraz! Devam edebilmemiz için yaşınızı öğrenebilir miyim?",
+      "system_commands": {
+        "updates": [],
+        "asking": "age",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 4,
+      "timestamp": "2025-07-23T18:17:34.540072",
+      "user_input": "28",
+      "assistant_response": "🇺🇸 Great, Poyraz! I've recorded your age as 28. Now, could you tell me your weight? Please feel free to share in kilograms or pounds—whichever you prefer.\n🇹🇷 Harika, Poyraz! Yaşınızı 28 olarak kaydettim. Şimdi, kilonuzu öğrenebilir miyim? Kilonuzu isterseniz kilogram, isterseniz pound cinsinden paylaşabilirsiniz.",
+      "system_commands": {
+        "updates": [
+          {
+            "field": "age",
+            "value": "28"
+          }
+        ],
+        "asking": "weight",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    }
+  ]
+}

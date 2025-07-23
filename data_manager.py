@@ -5,6 +5,7 @@ class DataManager:
     
     def __init__(self, data_file="data/data.json"):
         self.data_file = data_file
+        self.session_initialized = False  # Track if this session has been initialized
     
     def load_data(self):
         """Load data from JSON file"""
@@ -130,3 +131,49 @@ class DataManager:
             json.dump(recommendation_record, f, indent=2)
         
         return recommendation_record
+    
+    def save_conversation_turn(self, user_input, assistant_response, system_commands, current_stage):
+        """Save a conversation turn to conversation_history.json"""
+        from datetime import datetime
+        import os
+        
+        history_file = "data/conversation_history.json"
+        
+        # Check if this is the first turn of a new session
+        if not self.session_initialized:
+            # Start fresh conversation history for new session
+            history = {
+                "session_start": datetime.now().isoformat(),
+                "turns": []
+            }
+            self.session_initialized = True
+        else:
+            # Load existing history from current session
+            if os.path.exists(history_file):
+                with open(history_file, 'r', encoding='utf-8') as f:
+                    history = json.load(f)
+            else:
+                # Fallback if file doesn't exist
+                history = {
+                    "session_start": datetime.now().isoformat(),
+                    "turns": []
+                }
+        
+        # Create new turn
+        turn = {
+            "turn_number": len(history["turns"]) + 1,
+            "timestamp": datetime.now().isoformat(),
+            "user_input": user_input,
+            "assistant_response": assistant_response,
+            "system_commands": system_commands,
+            "stage": current_stage
+        }
+        
+        # Add turn to history
+        history["turns"].append(turn)
+        
+        # Save updated history
+        with open(history_file, 'w', encoding='utf-8') as f:
+            json.dump(history, f, indent=2, ensure_ascii=False)
+        
+        return turn
