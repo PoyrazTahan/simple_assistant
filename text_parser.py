@@ -18,13 +18,13 @@ def parse_language_tags(message):
     turkish_match = re.search(turkish_pattern, message, re.DOTALL)
     
     if english_match and turkish_match:
-        # Language mode: concatenate both languages
+        # Language mode: concatenate both languages with flag emojis
         english_text = english_match.group(1).strip()
         turkish_text = turkish_match.group(1).strip()
-        return f"English: {english_text}\nTurkish: {turkish_text}"
+        return f"🇺🇸 {english_text}\n🇹🇷 {turkish_text}"
     elif english_match:
         # Only English tags found
-        return f"English: {english_match.group(1).strip()}"
+        return f"🇺🇸 {english_match.group(1).strip()}"
     else:
         # Default mode: return message as-is (should be English)
         return message

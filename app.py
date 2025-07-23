@@ -2,8 +2,7 @@ import sys
 from simple_agent import SimpleAgent
 from stage_manager import StageManager
 from data_manager import DataManager
-import text_parser
-from conversation_ui import print_agent_message, print_user_message, get_user_input
+from conversation_ui import print_agent_message, print_user_message, get_user_input, ThinkingAnimation
 from widget_handler import is_widget_field, show_widget_for_field
 
 def main():
@@ -52,8 +51,8 @@ def main():
         if stage_manager.needs_user_input() and not user_input:
             user_input = get_user_input()
             
-            # Check for quit
-            if user_input.lower() == 'quit':
+            # Check if user wants to quit
+            if user_input is None:
                 break
                 
             # Display user input
@@ -64,8 +63,13 @@ def main():
             if debug_mode:
                 print(f"[DEBUG] - Automatic transition to recommendations stage")
         
-        # Agent conversation
+        # Agent conversation with thinking animation
+        thinking_animation = ThinkingAnimation()
+        thinking_animation.start()
+        
         response = agent.ask(user_input, stage_context, profile_and_data_context)
+        
+        thinking_animation.stop()
         
         # Execute system commands
         command_results = execute_system_commands(response["system_commands"], data_manager, debug_mode)
@@ -92,9 +96,9 @@ def main():
         
         # Display recommendations if any
         if response["system_commands"]["recommendations"]:
-            print("📋 Recommendations:")
+            print("    📋 Recommendations:")
             for recommendation in response["system_commands"]["recommendations"]:
-                print(f"   • {recommendation}")
+                print(f"        • {recommendation}")
         
         # Debug mode: show system commands
         if debug_mode:
@@ -147,16 +151,25 @@ def execute_system_commands(system_commands, data_manager, debug_mode):
                 print(f"[DEBUG] - Showing widget for field: {field}")
             
             # Show widget and get user selection
-            selection = show_widget_for_field(field)
+            widget_result = show_widget_for_field(field)
             
-            if selection is not None:
-                # Auto-update the field with widget selection
-                result = data_manager.update_field(field, selection)
+            if widget_result == "QUIT":
+                # User wants to quit during widget selection - exit main loop
+                import sys
+                print("    ❌ Uygulamadan çıkılıyor...")
+                sys.exit(0)
+            elif widget_result is not None:
+                # Widget returns (english_value, turkish_display)
+                english_value, turkish_display = widget_result
+                
+                # Use English value for backend storage
+                result = data_manager.update_field(field, english_value)
                 results.append(f"WIDGET_UPDATE: {result}")
-                results.append(f"WIDGET_COMPLETED: {selection}")
+                # Store Turkish display for user display
+                results.append(f"WIDGET_COMPLETED: {turkish_display}")
                 
                 if debug_mode:
-                    print(f"[DEBUG] - Widget completed: {field} = {selection}")
+                    print(f"[DEBUG] - Widget completed: {field} = {english_value} (display: {turkish_display})")
             else:
                 results.append(f"WIDGET_CANCELLED: {field}")
         else:

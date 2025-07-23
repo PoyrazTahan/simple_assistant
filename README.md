@@ -80,8 +80,68 @@ python app.py --model=gpt-4o
 python app.py --language --model=gpt-4o --debug
 ```
 
+### Available Command Line Parameters
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `--debug` | Shows system commands, data updates, and debug information | `python app.py --debug` |
+| `--language` | Enable dual language mode (English 🇺🇸 + Turkish 🇹🇷) | `python app.py --language` |
+| `--model=MODEL` | Specify OpenAI model (default: gpt-4o-mini) | `python app.py --model=gpt-4o` |
+| `--full-prompt` | Display complete prompts sent to the AI | `python app.py --full-prompt` |
+
+### User Interface Features
+
+**Exiting the Application:**
+- Type `quit` (case-insensitive) at any input prompt to exit
+- Works in both free-form conversation and widget selection
+- Examples: `quit`, `QUIT`, `Quit` all work
+
+**AI Thinking Animation:**
+- Shows "🤖 AI is thinking..." with animated dots while processing
+- Automatically clears when response is ready
+
+**Widget Interface:**
+- Interactive selection menus for specific data fields  
+- Shows numbered options in a bordered box
+- Type `quit` during widget selection to exit
+
+**Language Mode Features:**
+- Dual language responses with flag emojis (🇺🇸/🇹🇷)
+- Natural Turkish composition (not translation)
+- Both languages displayed for user messages and recommendations
+
 ### Testing
 
+Test the conversation flow:
+
+1. Start the application: `python app.py`
+2. Follow the conversation prompts
+3. Use widget interfaces when they appear (numbered selections)
+4. Type `quit` at any time to exit
+5. The assistant will collect health data and provide recommendations
+
+**Testing Different Modes:**
+```bash
+# Test with debug information
+python app.py --debug
+
+# Test dual language mode
+python app.py --language
+
+# Test with different AI model
+python app.py --model=gpt-4o
+
+# Test with full prompt visibility
+python app.py --full-prompt --debug
+```
+
+**Expected UI Elements:**
+- 🤖 AI thinking animation during processing
+- 🎛️ Widget selection boxes for certain fields
+- 📋 Recommendations display after conversation
+- 🇺🇸/🇹🇷 Flag emojis in language mode
+
+**Automated Test Suite:**
 ```bash
 # Run all test scenarios
 python test.py

@@ -4,6 +4,7 @@ Simplified widget handler for simple_onboarding
 """
 
 import json
+from conversation_ui import get_user_input
 
 def load_widget_config():
     """Load widget configuration"""
@@ -68,10 +69,16 @@ def show_widget_for_field(field_name):
     # Show widget box with all options
     print_widget_box(question_text, display_options)
     
-    # Get user input (stdin will be handled by test.py automatically)
+    # Get user input with unified quit check
     while True:
         try:
-            user_input = input("    Seçiminizi yapın (sadece rakam): ").strip()
+            user_input = get_user_input("    Seçiminizi yapın (sadece rakam): ")
+            
+            # Check if user wants to quit
+            if user_input is None:
+                print("    ❌ Çıkış yapılıyor...")
+                return "QUIT"  # Special return value to signal quit
+                
             choice_num = int(user_input)
             
             if 1 <= choice_num <= len(display_options):
@@ -80,7 +87,7 @@ def show_widget_for_field(field_name):
                 selected_value = option_objects[choice_index]["value"]  # English value
                 
                 print_widget_box(question_text, display_options, selected_display)
-                return selected_value  # Return English value for data consistency
+                return selected_value, selected_display  # Return English for backend, Turkish for display
             else:
                 print(f"    ❌ Lütfen 1-{len(display_options)} arasında bir rakam girin")
                 
@@ -94,5 +101,5 @@ def show_widget_for_field(field_name):
                 selected_display = display_options[choice_index]
                 selected_value = option_objects[choice_index]["value"]
                 print_widget_box(question_text, display_options, selected_display)
-                return selected_value
+                return selected_value, selected_display
             return None
