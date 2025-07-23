@@ -201,18 +201,24 @@ for update in system_commands["updates"]:
 5. Continue conversation
 ```
 
-### Widget Field Flow:
+### Widget Field Flow (Intended):
 
 ```
-1. LLM: "What's your gender?"
-2. Parse: <asking>gender</asking>
+1. LLM: "What's your gender?" (Message displayed to user FIRST)
+2. Parse: <asking>gender</asking>  
 3. Detect: gender is widget field
 4. Show: Widget UI with options
 5. User: Selects "2"
-6. Return: "Female"
-7. Update: gender = "Female"
-8. Continue: conversation with "Female" as user input
+6. Auto-update: gender = "Female" (bypasses LLM update commands)
+7. Continue: Send "Female" as next user input to LLM
+8. LLM: Processes "Female" and asks next question
 ```
+
+**Critical Design Principle**: 
+- **Display Order**: LLM message must appear BEFORE widget UI
+- **Auto-Update**: Widget selections are immediately stored without waiting for LLM `<update>` commands
+- **LLM Protection**: The LLM is not told about widget mechanics to prevent hallucination and reduce prompt complexity
+- **No Caching**: Widget asking commands should only come from current LLM response, never from cached/previous states
 
 ## 🧪 Testing Architecture
 

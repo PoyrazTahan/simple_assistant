@@ -71,7 +71,10 @@ def main():
         
         thinking_animation.stop()
         
-        # Execute system commands
+        # Display response FIRST (before widgets)
+        print_agent_message(response["user_message"])
+        
+        # Execute system commands (this may show widgets)
         command_results = execute_system_commands(response["system_commands"], data_manager, debug_mode)
         
         # Check if a widget was completed
@@ -90,9 +93,6 @@ def main():
         
         # Update stage based on response
         stage_manager.update_stage(response)
-        
-        # Display response
-        print_agent_message(response["user_message"])
         
         # Display recommendations if any
         if response["system_commands"]["recommendations"]:

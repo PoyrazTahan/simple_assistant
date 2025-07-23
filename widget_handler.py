@@ -5,6 +5,53 @@ Simplified widget handler for simple_onboarding
 
 import json
 from conversation_ui import get_user_input
+import textwrap
+
+def wrap_text_with_prefix(text, max_width, continuation_prefix):
+    """Wrap text with proper alignment for continuation lines"""
+    if len(text) <= max_width:
+        return [text]
+    
+    lines = []
+    remaining = text
+    first_line = True
+    
+    while remaining:
+        if first_line:
+            # First line uses full width
+            if len(remaining) <= max_width:
+                lines.append(remaining)
+                break
+            else:
+                # Find last space before max_width
+                cut_pos = max_width
+                while cut_pos > 0 and remaining[cut_pos] != ' ':
+                    cut_pos -= 1
+                
+                if cut_pos == 0:  # No space found, cut at max_width
+                    cut_pos = max_width
+                
+                lines.append(remaining[:cut_pos])
+                remaining = continuation_prefix + remaining[cut_pos:].lstrip()
+                first_line = False
+        else:
+            # Continuation lines
+            if len(remaining) <= max_width:
+                lines.append(remaining)
+                break
+            else:
+                # Find last space before max_width
+                cut_pos = max_width
+                while cut_pos > len(continuation_prefix) and remaining[cut_pos] != ' ':
+                    cut_pos -= 1
+                
+                if cut_pos <= len(continuation_prefix):  # No space found
+                    cut_pos = max_width
+                
+                lines.append(remaining[:cut_pos])
+                remaining = continuation_prefix + remaining[cut_pos:].lstrip()
+    
+    return lines
 
 def load_widget_config():
     """Load widget configuration"""
@@ -22,20 +69,39 @@ def is_widget_field(field_name):
     return field_name in widget_fields and widget_fields[field_name].get("enabled", False)
 
 def print_widget_box(question_text, options, selected_option=None):
-    """Print entire widget content in a nice box"""
+    """Print entire widget content in a nice box with text wrapping"""
+    BOX_WIDTH = 41  # Total inner width
+    
     print()
     print("    ┌─────────────────────────────────────────┐")
     print("    │              🎛️  WIDGET UI               │")
     print("    ├─────────────────────────────────────────┤")
-    print(f"    │ 📝 {question_text[:34]:<34}   │")
+    
+    # Wrap question text with proper alignment (reserve 2 spaces for padding)
+    question_lines = wrap_text_with_prefix(f"📝 {question_text}", BOX_WIDTH - 2, "   ")
+    for line in question_lines:
+        print(f"    │ {line:<{BOX_WIDTH - 2}} │")
+    
     print("    │                                         │")
     print("    │ Seçenekler:                             │")
     
+    # Wrap option text with proper alignment
     for i, option in enumerate(options, 1):
+        prefix = f"{i:2}) "
         if selected_option and option == selected_option:
-            print(f"    │ {i:2}) {option:<32} ✅ │")
+            # For selected option, reserve space for checkmark (✅ = 3 chars including space)
+            option_lines = wrap_text_with_prefix(f"{prefix}{option}", BOX_WIDTH - 5, "     ")
+            for j, line in enumerate(option_lines):
+                if j == 0:
+                    # First line gets the checkmark
+                    print(f"    │ {line:<{BOX_WIDTH - 5}} ✅ │")
+                else:
+                    # Continuation lines get normal spacing
+                    print(f"    │ {line:<{BOX_WIDTH - 2}} │")
         else:
-            print(f"    │ {i:2}) {option:<34}  │")
+            option_lines = wrap_text_with_prefix(f"{prefix}{option}", BOX_WIDTH - 2, "     ")
+            for line in option_lines:
+                print(f"    │ {line:<{BOX_WIDTH - 2}} │")
     
     print("    │                                         │")
     print("    └─────────────────────────────────────────┘")
@@ -55,8 +121,8 @@ def show_widget_for_field(field_name):
     
     widget_config = widget_fields[field_name]
     
-    # Use English question text
-    question_text = widget_config.get("question_text", f"Select {field_name}")
+    # Use Turkish question text
+    question_text = widget_config.get("question_text_tr", f"Select {field_name}")
     
     # Get options
     if "options" in widget_config:
