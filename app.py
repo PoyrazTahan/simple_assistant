@@ -13,7 +13,7 @@ def main():
     language_mode = "--language" in sys.argv
     
     # Check for model parameter
-    model = "gpt-4o-mini"  # default
+    model = "gpt-4.1"  # default
     for arg in sys.argv:
         if arg.startswith("--model="):
             model = arg.split("=")[1]
