@@ -90,6 +90,12 @@ def main():
         # Display response
         print_agent_message(response["user_message"])
         
+        # Display recommendations if any
+        if response["system_commands"]["recommendations"]:
+            print("📋 Recommendations:")
+            for recommendation in response["system_commands"]["recommendations"]:
+                print(f"   • {recommendation}")
+        
         # Debug mode: show system commands
         if debug_mode:
             print(f"\n[DEBUG] - System commands: {response['system_commands']}")
