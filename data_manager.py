@@ -79,7 +79,7 @@ class DataManager:
             if len(missing) == 1:
                 status_lines.append(f"• FINAL QUESTION: Ask about {missing[0]} only - this will complete the assessment")
             else:
-                status_lines.append(f"• Next: Ask about {missing[0]} or related field")
+                status_lines.append(f"• Next: Ask about most related missing field or <asking>{missing[0]}<asking> which is the next one in the list. ! DO NOT ASK 'RECORDED USER DATA'")
         else:
             status_lines.append("• We have all the information we need - DO NOT ASK ANY ADDITIONAL INFORMATION")
         
