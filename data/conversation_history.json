@@ -1,11 +1,11 @@
 {
-  "session_start": "2025-07-23T18:17:08.638448",
+  "session_start": "2025-07-24T13:16:00.708878",
   "turns": [
     {
       "turn_number": 1,
-      "timestamp": "2025-07-23T18:17:08.638480",
+      "timestamp": "2025-07-24T13:16:00.708905",
       "user_input": "",
-      "assistant_response": "🇺🇸 Welcome back, Poyraz! It's great to see you again. We're here to help you keep track of your health and offer advice tailored just for you. We'll continue by collecting some basic information about your daily habits and wellness, so you can get the most suitable recommendations.\n🇹🇷 Tekrar hoş geldiniz Poyraz! Sizi yeniden burada görmek çok güzel. Size uygun sağlık tavsiyeleri sunabilmemiz için günlük alışkanlıklarınız ve genel sağlık durumunuzla ilgili bazı temel bilgileri birlikte güncelleyeceğiz. Bu şekilde, size en faydalı önerileri hazırlayabileceğiz.",
+      "assistant_response": "🇺🇸 Welcome back, Poyraz! It’s great to see you again. We’ll continue updating your health information together—this way, you’ll get wellness recommendations tailored to your current situation. If there’s anything you’d like to review or change along the way, just let me know.\n🇹🇷 Tekrar hoş geldiniz Poyraz! Sizi yeniden görmek çok güzel. Sağlık bilgilerinizi birlikte güncellemeye devam edeceğiz, böylece size en uygun önerilerde bulunabilirim. Görüşlerinizi değiştirmek isterseniz ya da herhangi bir konuda ekleme yapmak isterseniz bana rahatlıkla söyleyebilirsiniz.",
       "system_commands": {
         "updates": [],
         "asking": null,
@@ -15,44 +15,168 @@
     },
     {
       "turn_number": 2,
-      "timestamp": "2025-07-23T18:17:13.033412",
-      "user_input": "test",
-      "assistant_response": "🇺🇸 Thank you, Poyraz! Let’s get started. Could you please tell me your age?\n🇹🇷 Teşekkürler Poyraz. Şimdi başlayalım isterseniz. Yaşınızı söyler misiniz?",
+      "timestamp": "2025-07-24T13:16:03.354620",
+      "user_input": "continue",
+      "assistant_response": "🇺🇸 Thank you, Poyraz! Let’s keep going. Could you tell me your current weight? This will help me provide more accurate advice for your health journey.\n🇹🇷 Teşekkür ederim Poyraz, devam edelim. Şu anda kaç kilo olduğunuzu öğrenebilir miyim? Böylece senin için daha uygun önerilerde bulunabilirim.",
       "system_commands": {
         "updates": [],
-        "asking": "age",
+        "asking": "weight",
         "recommendations": []
       },
       "stage": "QUESTIONNAIRE"
     },
     {
       "turn_number": 3,
-      "timestamp": "2025-07-23T18:17:25.088594",
-      "user_input": "test2",
-      "assistant_response": "🇺🇸 Thank you for your response, Poyraz! To proceed, may I ask how old you are?\n🇹🇷 Yanıtınız için teşekkürler Poyraz! Devam edebilmemiz için yaşınızı öğrenebilir miyim?",
+      "timestamp": "2025-07-24T13:16:05.893804",
+      "user_input": "68kg",
+      "assistant_response": "🇺🇸 Great, I’ve recorded your weight as 68 kg. Next, could you tell me your height? This will help complete your assessment.\n🇹🇷 Harika, kilonuzu 68 kg olarak kaydettim. Şimdi boyunuzu da öğrenebilir miyim? Böylece değerlendirmemizi tamamlamış olacağız.",
       "system_commands": {
-        "updates": [],
-        "asking": "age",
+        "updates": [
+          {
+            "field": "weight",
+            "value": "68"
+          }
+        ],
+        "asking": "height",
         "recommendations": []
       },
       "stage": "QUESTIONNAIRE"
     },
     {
       "turn_number": 4,
-      "timestamp": "2025-07-23T18:17:34.540072",
-      "user_input": "28",
-      "assistant_response": "🇺🇸 Great, Poyraz! I've recorded your age as 28. Now, could you tell me your weight? Please feel free to share in kilograms or pounds—whichever you prefer.\n🇹🇷 Harika, Poyraz! Yaşınızı 28 olarak kaydettim. Şimdi, kilonuzu öğrenebilir miyim? Kilonuzu isterseniz kilogram, isterseniz pound cinsinden paylaşabilirsiniz.",
+      "timestamp": "2025-07-24T13:16:08.651007",
+      "user_input": "162cm",
+      "assistant_response": "🇺🇸 Perfect, I've noted your height as 162 cm. Moving forward, how would you describe the quality of your sleep lately? For example, do you sleep deeply and wake up refreshed, or do you often feel unrested?\n🇹🇷 Çok güzel, boyunuzu 162 cm olarak kaydettim. Şimdi, son zamanlarda uykunuzun kalitesini nasıl buluyorsunuz? Mesela sabahları dinlenmiş mi uyanıyorsunuz, yoksa genellikle yorgun mu hissediyorsunuz?",
       "system_commands": {
         "updates": [
           {
-            "field": "age",
-            "value": "28"
+            "field": "height",
+            "value": "162"
           }
         ],
-        "asking": "weight",
+        "asking": "sleep_quality",
         "recommendations": []
       },
       "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 5,
+      "timestamp": "2025-07-24T13:16:11.077348",
+      "user_input": "Bazen",
+      "assistant_response": "🇺🇸 Thank you for sharing, Poyraz! Now, could you tell me how stressed you’ve been feeling lately? For example, would you say your stress level has been low, moderate, or high?\n🇹🇷 Paylaştığınız için teşekkür ederim Poyraz! Şimdi, son zamanlarda kendinizi ne kadar stresli hissediyorsunuz? Mesela stres düzeyiniz düşük mü, orta mı, yoksa yüksek mi olurdu?",
+      "system_commands": {
+        "updates": [
+          {
+            "field": "sleep_quality",
+            "value": "Sometimes"
+          }
+        ],
+        "asking": "stress_level",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 6,
+      "timestamp": "2025-07-24T13:16:14.349019",
+      "user_input": "Geçen zamanın yarısından azında",
+      "assistant_response": "🇺🇸 Thanks, Poyraz! I've noted that you feel stressed less than half the time. Now, let’s talk about your ruh haliniz (mood). Son günlerde, genel olarak kendinizi nasıl hissediyorsunuz? Mesela çoğu zaman iyi mi hissediyorsunuz, yoksa dalgalı mı oluyor?\n🇹🇷 Teşekkürler Poyraz, stresinizi çoğu zaman düşük olarak kaydettim. Şimdi ruh halinizi konuşalım. Son günlerde kendinizi genel olarak nasıl hissediyorsunuz? Mesela çoğunlukla iyi, orta, yoksa dalgalı mı hissediyorsunuz?",
+      "system_commands": {
+        "updates": [
+          {
+            "field": "stress_level",
+            "value": "Less than half the time"
+          }
+        ],
+        "asking": "mood_level",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 7,
+      "timestamp": "2025-07-24T13:16:17.695270",
+      "user_input": "Bazen",
+      "assistant_response": "🇺🇸 Thank you, Poyraz, I've recorded that you sometimes feel this way lately. Now, let’s talk about your daily hareketliliğiniz (activity level). Ne kadar hareketli olduğunuzu bana anlatır mısınız? Mesela çoğunlukla oturuyor musunuz, yoksa gün içinde yürümek, egzersiz yapmak gibi aktiviteleriniz oluyor mu?\n🇹🇷 Teşekkür ederim Poyraz, kendinizi bazen böyle hissettiğinizi not aldım. Şimdi günlük hareket durumunuza geçelim. Gün içinde ne kadar hareket ettiğinizi paylaşır mısınız? Yani genellikle oturarak mı vakit geçiriyorsunuz, yoksa gün içinde yürüyüş, egzersiz gibi aktiviteleriniz oluyor mu?",
+      "system_commands": {
+        "updates": [
+          {
+            "field": "mood_level",
+            "value": "Sometimes"
+          }
+        ],
+        "asking": "activity_level",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 8,
+      "timestamp": "2025-07-24T13:16:21.054013",
+      "user_input": "Çok düşük (çoğunlukla oturuyor veya uzanıyorum)",
+      "assistant_response": "🇺🇸 Thank you for sharing, Poyraz. I've recorded that your activity level is very low (mostly sitting or lying down). Now, can you tell me how often you consume foods or drinks with added sugar? This includes things like soft drinks, desserts, pastries, or sweetened tea/coffee.\n🇹🇷 Paylaştığınız için teşekkür ederim Poyraz, hareket seviyenizi çoğunlukla oturur veya uzanır durumda olarak kaydettim. Şimdi size şunu sormak isterim: Gün içinde ne sıklıkla şekerli yiyecek ya da içecekler (gazlı içecekler, tatlılar, pastalar veya şekerli çay/kahve gibi) tüketiyorsunuz?",
+      "system_commands": {
+        "updates": [
+          {
+            "field": "activity_level",
+            "value": "Very low (mostly sitting or lying down)"
+          }
+        ],
+        "asking": "sugar_intake",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 9,
+      "timestamp": "2025-07-24T13:16:24.407652",
+      "user_input": "Hiç",
+      "assistant_response": "🇺🇸 Great, Poyraz! I've recorded that you never consume added sugar. Next, could you tell me about your daily water intake? For example, how many glasses or liters of water do you usually drink in a day?\n🇹🇷 Harika, Poyraz! Şekerli gıdaları hiç tüketmediğinizi not ettim. Şimdi, günlük su tüketiminizi öğrenebilir miyim? Genellikle bir günde kaç bardak ya da kaç litre su içiyorsunuz?",
+      "system_commands": {
+        "updates": [
+          {
+            "field": "sugar_intake",
+            "value": "Never"
+          }
+        ],
+        "asking": "water_intake",
+        "recommendations": []
+      },
+      "stage": "QUESTIONNAIRE"
+    },
+    {
+      "turn_number": 10,
+      "timestamp": "2025-07-24T13:16:27.420075",
+      "user_input": "7-8 bardak (1400-1600 ml)",
+      "assistant_response": "🇺🇸 Thank you, Poyraz! I've recorded your daily water intake as 7-8 glasses (1400-1600 ml). Just one last question: Could you tell me about your smoking status? For example, do you currently smoke, have you quit, or have you never smoked?\n🇹🇷 Teşekkür ederim Poyraz! Günlük su tüketiminizi 7-8 bardak (1400-1600 ml) olarak kaydettim. Sadece son bir sorum kaldı: Sigara kullanımı konusunda bilgi verir misiniz? Şu anda sigara içiyor musunuz, bıraktınız mı yoksa hiç kullanmadınız mı?",
+      "system_commands": {
+        "updates": [
+          {
+            "field": "water_intake",
+            "value": "7-8 glasses (1400-1600 ml)"
+          }
+        ],
+        "asking": "smoking_status",
+        "recommendations": []
+      },
+      "stage": "RECOMMENDATIONS"
+    },
+    {
+      "turn_number": 11,
+      "timestamp": "2025-07-24T13:16:35.214177",
+      "user_input": "",
+      "assistant_response": "🇺🇸 Poyraz, thanks so much for sharing all your health information—this really helps me support you in the best way possible! Looking over everything, I see you’re doing great in many areas, but I do have a few personalized suggestions that can support your overall wellness, especially while you’re pregnant.\n\n1. Since your activity level is quite low, gentle daily movement such as short walks or simple stretching (as approved by your doctor) can really help your mood, energy, and overall health—especially during pregnancy.\n2. It’s important to have regular health check-ups while expecting, so be sure to keep up with your prenatal appointments and routine screenings.\n3. Keep taking your supplements, as recommended for pregnancy, to support both your own needs and your baby’s development.\n4. Finally, since your BMI is slightly above the healthy range, consider tracking your weight regularly with your healthcare provider. This ensures both your health and your baby’s are on track.\n\nRemember, small and steady steps matter most. If you ever want to talk about any of these recommendations or need help fitting them into your routine, I’m here for you!\n🇹🇷 Poyraz, tüm sağlık bilgilerinizi paylaştığınız için çok teşekkür ederim—sizin için en uygun önerileri yapabilmem açısından bu gerçekten çok değerli. Mevcut durumda pek çok noktada oldukça iyi gidiyorsunuz, ancak özellikle hamileliğiniz sürecinde faydalı olabilecek bazı önerilerim var.\n\n1. Günlük hareket düzeyiniz düşük olduğu için, doktorunuzun da onayladığı şekilde kısa yürüyüşler veya basit esneme hareketleri eklemek hem ruh halinize hem de enerjinize çok olumlu yansıyacaktır.\n2. Gebelik döneminde düzenli kontrollerinizi ihmal etmemeniz çok önemli. Sağlık kontrollerinizi ve taramalarınızı aksatmadan yaptırmaya devam edin.\n3. Kullanmakta olduğunuz vitamin ve takviyeleri, doktorunuzun önerdiği şekilde almaya özen gösterin. Hem kendi sağlığınız hem de bebeğinizin gelişimi için faydalı olacaktır.\n4. BMI değeriniz hafifçe yüksek olduğu için, kilo takibini düzenli olarak yapmakta fayda var—tabii bunu doktorunuzla birlikte takip etmeniz en doğrusu olur.\n\nUnutmayın, önemli olan küçük ve sürdürülebilir adımlar atmak. Bu önerilerden herhangi birini günlük hayatınıza nasıl dahil edebileceğinizi konuşmak isterseniz her zaman buradayım.",
+      "system_commands": {
+        "updates": [],
+        "asking": null,
+        "recommendations": [
+          "movement_break",
+          "regular_checkup",
+          "take_vitamins",
+          "weight_tracking"
+        ]
+      },
+      "stage": "RECOMMENDATIONS"
     }
   ]
 }

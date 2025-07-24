@@ -1,25 +1,25 @@
 {
-  "timestamp": "2025-07-21T22:34:07.730069",
+  "timestamp": "2025-07-24T13:16:35.216135",
   "user_data": {
-    "age": 23,
-    "weight": 78.0,
-    "height": 183.0,
+    "age": 32,
+    "weight": 68.0,
+    "height": 162.0,
     "gender": "Female",
-    "has_children": "No",
+    "has_children": "Pregnant",
     "sleep_quality": "Sometimes",
-    "stress_level": "Never",
+    "stress_level": "Less than half the time",
     "mood_level": "Sometimes",
-    "activity_level": "Low (short walks, occasionally standing)",
+    "activity_level": "Very low (mostly sitting or lying down)",
     "sugar_intake": "Never",
-    "water_intake": "3-4 glasses (600-800 ml)",
-    "smoking_status": "3-4 cigarettes per day",
-    "supplement_usage": "No"
+    "water_intake": "7-8 glasses (1400-1600 ml)",
+    "smoking_status": "No",
+    "supplement_usage": "Yes"
   },
-  "recommendation_message": "English: Po, thanks for patiently answering all my questions! Based on what you've shared, I have a few personalized recommendations that can help you feel even better day to day:\n\n1. Since you're currently smoking, cutting back or quitting is one of the best steps you can take for your long-term health. Even reducing the number of cigarettes each day makes a difference\u2014you\u2019re stronger than you think!\n2. Your water intake is a bit low. Try to gradually increase your daily water to at least 1.5\u20132 liters. Hydration boosts your energy, mood, and even helps with concentration.\n3. Getting some gentle movement into your routine\u2014even short walks, stretching, or a couple of dance moves\u2014really supports energy and overall wellbeing.\n4. Regular health checkups are important for everyone, even when you feel fine. Scheduling one helps catch little things early and keeps you on track.\n\nIf you\u2019d like tips for any of these steps, just let me know! I\u2019m always here to support you on your wellness journey.\nTurkish: T\u00fcm sorular\u0131ma sab\u0131rla yan\u0131t verdi\u011fin i\u00e7in te\u015fekk\u00fcr ederim Po! Payla\u015ft\u0131\u011f\u0131n bilgiler \u0131\u015f\u0131\u011f\u0131nda, sana \u00f6zel birka\u00e7 \u00f6nerim var:\n\n1. Sigara kulland\u0131\u011f\u0131n\u0131 s\u00f6yledin. Sigara miktar\u0131n\u0131 azaltmak ya da tamamen b\u0131rakmak sa\u011fl\u0131k a\u00e7\u0131s\u0131ndan verebilece\u011fin en iyi karar olur. Hatta g\u00fcnde i\u00e7ti\u011fin sigara say\u0131s\u0131n\u0131 azaltmak bile fark yarat\u0131r, bunu ba\u015farabilece\u011fine inan\u0131yorum!\n2. G\u00fcnl\u00fck su t\u00fcketimin biraz az. Yava\u015f yava\u015f su miktar\u0131n\u0131 1,5\u20132 litreye \u00e7\u0131karmay\u0131 denersen, hem enerjin hem de kendini iyi hissetme halin artar. Su her a\u00e7\u0131dan \u00f6nemli!\n3. G\u00fcn i\u00e7inde daha fazla hareket eklemeye \u00e7al\u0131\u015fabilirsin. Hafif y\u00fcr\u00fcy\u00fc\u015fler, esneme hareketleri ya da k\u0131sa egzersizler bile g\u00fcnl\u00fck ya\u015fam kaliteni art\u0131r\u0131r.\n4. D\u00fczenli sa\u011fl\u0131k kontrollerini atlamamak \u00f6nemli. Kendini iyi hissetsen de y\u0131lda bir doktor kontrol\u00fcnden ge\u00e7mek faydal\u0131 olur.\n\nBu \u00f6nerilerle ilgili akl\u0131na tak\u0131lan her \u015feyi sorabilirsin, sana her zaman destek olmaya haz\u0131r\u0131m!",
+  "recommendation_message": "🇺🇸 Poyraz, thanks so much for sharing all your health information—this really helps me support you in the best way possible! Looking over everything, I see you’re doing great in many areas, but I do have a few personalized suggestions that can support your overall wellness, especially while you’re pregnant.\n\n1. Since your activity level is quite low, gentle daily movement such as short walks or simple stretching (as approved by your doctor) can really help your mood, energy, and overall health—especially during pregnancy.\n2. It’s important to have regular health check-ups while expecting, so be sure to keep up with your prenatal appointments and routine screenings.\n3. Keep taking your supplements, as recommended for pregnancy, to support both your own needs and your baby’s development.\n4. Finally, since your BMI is slightly above the healthy range, consider tracking your weight regularly with your healthcare provider. This ensures both your health and your baby’s are on track.\n\nRemember, small and steady steps matter most. If you ever want to talk about any of these recommendations or need help fitting them into your routine, I’m here for you!\n🇹🇷 Poyraz, tüm sağlık bilgilerinizi paylaştığınız için çok teşekkür ederim—sizin için en uygun önerileri yapabilmem açısından bu gerçekten çok değerli. Mevcut durumda pek çok noktada oldukça iyi gidiyorsunuz, ancak özellikle hamileliğiniz sürecinde faydalı olabilecek bazı önerilerim var.\n\n1. Günlük hareket düzeyiniz düşük olduğu için, doktorunuzun da onayladığı şekilde kısa yürüyüşler veya basit esneme hareketleri eklemek hem ruh halinize hem de enerjinize çok olumlu yansıyacaktır.\n2. Gebelik döneminde düzenli kontrollerinizi ihmal etmemeniz çok önemli. Sağlık kontrollerinizi ve taramalarınızı aksatmadan yaptırmaya devam edin.\n3. Kullanmakta olduğunuz vitamin ve takviyeleri, doktorunuzun önerdiği şekilde almaya özen gösterin. Hem kendi sağlığınız hem de bebeğinizin gelişimi için faydalı olacaktır.\n4. BMI değeriniz hafifçe yüksek olduğu için, kilo takibini düzenli olarak yapmakta fayda var—tabii bunu doktorunuzla birlikte takip etmeniz en doğrusu olur.\n\nUnutmayın, önemli olan küçük ve sürdürülebilir adımlar atmak. Bu önerilerden herhangi birini günlük hayatınıza nasıl dahil edebileceğinizi konuşmak isterseniz her zaman buradayım.",
   "top_4_actions": [
-    "quit_smoking",
-    "drink_water",
     "movement_break",
-    "regular_checkup"
+    "regular_checkup",
+    "take_vitamins",
+    "weight_tracking"
   ]
 }
