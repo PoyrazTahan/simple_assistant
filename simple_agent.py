@@ -15,11 +15,12 @@ load_dotenv()
 class SimpleAgent:
     """Simple agent for basic LLM conversation using Semantic Kernel"""
     
-    def __init__(self, debug_mode=False, prompt_mode=False, language_mode=False, model="gpt-4o-mini"):
+    def __init__(self, debug_mode=False, prompt_mode=False, language_mode=False, model="gpt-4.1"):
         self.api_key = os.getenv("OPENAI_API_KEY")
         if not self.api_key:
             raise ValueError("OPENAI_API_KEY not found in environment variables")
         
+        print(f"📦 Initializing SimpleAgent with model: {model}")
         self.model = model
         self.system_prompt = self._load_system_prompt()
         self.language_prompt = self._load_language_prompt() if language_mode else ""
