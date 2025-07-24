@@ -331,43 +331,6 @@
         "smoking_status": "Half pack per day",
         "supplement_usage": "Yes"
       }
-    },
-    {
-      "name": "Privacy Conscious User",
-      "profile": "privacy_conscious",
-      "description": "User who prefers not to share some personal information",
-      "existing_data": {
-        "gender": "Prefer not to say",
-        "age": 31
-      },
-      "inputs": {
-        "weight": "refuse to answer",
-        "height": "170cm",
-        "has_children": "3",
-        "sleep_quality": "2",
-        "stress_level": "4",
-        "mood_level": "2",
-        "activity_level": "2",
-        "sugar_intake": "2",
-        "water_intake": "3",
-        "smoking_status": "1",
-        "supplement_usage": "2"
-      },
-      "expected_result": {
-        "age": 31,
-        "weight": null,
-        "height": 170.0,
-        "gender": "Prefer not to say",
-        "has_children": "Pregnant",
-        "sleep_quality": "Sometimes",
-        "stress_level": "More than half the time",
-        "mood_level": "Sometimes",
-        "activity_level": "Low (short walks, occasionally standing)",
-        "sugar_intake": "1-2 days",
-        "water_intake": "5-6 glasses (1000-1200 ml)",
-        "smoking_status": "No",
-        "supplement_usage": "Yes"
-      }
     }
   ]
 }

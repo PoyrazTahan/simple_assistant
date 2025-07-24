@@ -11,6 +11,7 @@ def main():
     debug_mode = "--debug" in sys.argv
     prompt_mode = "--full-prompt" in sys.argv
     language_mode = "--language" in sys.argv
+    test_mode = "--test" in sys.argv
     
     # Check for model parameter
     model = "gpt-4.1"  # default
@@ -43,12 +44,16 @@ def main():
     user_input = ""  # Initialize user_input
     
     while not stage_manager.is_complete():
-        # Get current stage context
-        stage_context = stage_manager.get_current_stage_context()
-        profile_and_data_context = stage_manager.get_profile_and_data_context()
-        
         # Get user input if needed (and not already set from widget)
         if stage_manager.needs_user_input() and not user_input:
+            # Test mode: Signal that input is needed RIGHT BEFORE asking for it
+            if test_mode:
+                # Use previous response's asking field, or NONE if first iteration
+                asking_field = response["system_commands"]["asking"] if 'response' in locals() else None
+                current_stage = stage_manager.get_current_stage()
+                field_info = asking_field if asking_field is not None else "NONE"
+                print(f"[TEST_INPUT_NEEDED:{current_stage}:{field_info}]", flush=True)
+            
             user_input = get_user_input()
             
             # Check if user wants to quit
@@ -63,6 +68,9 @@ def main():
             if debug_mode:
                 print(f"[DEBUG] - Automatic transition to recommendations stage")
         
+        # Get FRESH stage context AFTER previous updates have been applied
+        stage_context = stage_manager.get_current_stage_context()
+        profile_and_data_context = stage_manager.get_profile_and_data_context()
         # Agent conversation with thinking animation
         thinking_animation = ThinkingAnimation()
         thinking_animation.start()
@@ -75,7 +83,7 @@ def main():
         print_agent_message(response["user_message"])
         
         # Execute system commands (this may show widgets)
-        command_results = execute_system_commands(response["system_commands"], data_manager, debug_mode)
+        command_results = execute_system_commands(response["system_commands"], data_manager, debug_mode, test_mode)
         
         # Check if a widget was completed
         widget_selection = None
@@ -131,7 +139,7 @@ def main():
     if stage_manager.get_current_stage() == "RECOMMENDATIONS":
         handle_final_recommendations(agent, data_manager, system_messages_history, debug_mode)
 
-def execute_system_commands(system_commands, data_manager, debug_mode):
+def execute_system_commands(system_commands, data_manager, debug_mode, test_mode=False):
     """Execute system commands and return results"""
     results = []
     
@@ -157,6 +165,10 @@ def execute_system_commands(system_commands, data_manager, debug_mode):
         if is_widget_field(field):
             if debug_mode:
                 print(f"[DEBUG] - Showing widget for field: {field}")
+            
+            # Test mode: Print marker before widget is shown so test can provide input
+            if test_mode:
+                print(f"[TEST_INPUT_NEEDED:QUESTIONNAIRE:{field}]", flush=True)
             
             # Show widget and get user selection
             widget_result = show_widget_for_field(field)
