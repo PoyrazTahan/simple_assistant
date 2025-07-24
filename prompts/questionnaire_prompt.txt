@@ -16,7 +16,7 @@ CRITICAL: If GUIDANCE shows "FINAL QUESTION":
 When the user provides information, you should:
 - Acknowledge their response in a friendly way
 - Extract the data and send system commands
-- Ask the next question ONLY if there are still missing fields
+- Check MISSING FIELDS list - ask the next question ONLY from that list
 - If this was the FINAL QUESTION, just acknowledge - no more questions needed
 
 System commands format:
