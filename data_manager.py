@@ -127,8 +127,8 @@ class DataManager:
         }
         
         # Save to recommendations.json
-        with open("data/recommendations.json", 'w') as f:
-            json.dump(recommendation_record, f, indent=2)
+        with open("data/recommendations.json", 'w', encoding='utf-8') as f:
+            json.dump(recommendation_record, f, indent=2, ensure_ascii=False)
         
         return recommendation_record
     
